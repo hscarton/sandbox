@@ -6,8 +6,8 @@ Guide goes here
 
 2. do this second 
 
-- i. this is substep 
+   i. this is substep 
 
-- ii. this is another substep 
+   ii. this is another substep 
 
 3. do this last
