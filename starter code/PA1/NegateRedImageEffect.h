@@ -9,12 +9,18 @@ class NegateRedImageEffect : public ImageEffect
 {
     virtual void processImage(PpmDocument &doc)
     {
-		Pixel& p = doc.getPixel(i, j);
-		
-		//subtract the current red pixel number from 255
-		//to get the negate red number
-		int r_num = 255 - p.getRed();
-		p.setRed(r_num);
+		for (int i = 0; i < doc.getHeight(); i++)
+		{
+			for (int j = 0; j < doc.getWidth(); j++)
+			{
+				Pixel& p = doc.getPixel(i, j);
+
+				//subtract the current red pixel number from 255
+				//to get the negate red number
+				int r_num = 255 - p.getRed();
+				p.setRed(r_num);
+			}
+		}
     }
 
 };

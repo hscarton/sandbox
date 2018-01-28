@@ -9,12 +9,18 @@ class NegateGreenImageEffect : public ImageEffect
 {
     virtual void processImage(PpmDocument &doc)
     {
-		Pixel& p = doc.getPixel(i, j);
-		
-		//subtract the current green pixel number from 255
-		//to get the negate green number
-		int g_num = 255 - p.getGreen();
-		p.setGreen(g_num);
+		for (int i = 0; i < doc.getHeight(); i++)
+		{
+			for (int j = 0; j < doc.getWidth(); j++)
+			{
+				Pixel& p = doc.getPixel(i, j);
+
+				//subtract the current green pixel number from 255
+				//to get the negate green number
+				int g_num = 255 - p.getGreen();
+				p.setGreen(g_num);
+			}
+		}
     }
 
 };

@@ -9,8 +9,14 @@ class RemoveBlueImageEffect : public ImageEffect
 {
     virtual void processImage(PpmDocument &doc)
     {
-		Pixel& p = doc.getPixel(i, j);
-		p.setBlue(0);
+		for (int i = 0; i < doc.getHeight(); i++)
+		{
+			for (int j = 0; j < doc.getWidth(); j++)
+			{
+				Pixel& p = doc.getPixel(i, j);
+				p.setBlue(0);
+			}
+		}
     }
 
 };

@@ -9,10 +9,18 @@
 #include "ImageEffect.h"
 #include "RemoveRedImageEffect.h"
 #include "RemoveGreenImageEffect.h"
+#include "RemoveBlueImageEffect.h"
+#include "NegateRedImageEffect.h"
+#include "NegateGreenImageEffect.h"
+#include "NegateBlueImageEffect.h"
+#include "AddNoiseImageEffect.h"
+#include "HighContrastImageEffect.h"
+#include "GrayscaleImageEffect.h"
+
 using namespace std;
 
 enum colors_t { RED = 0, GREEN, BLUE };
-enum menu_options_t {REMOVE_RED = 1, REMOVE_GREEN, REMOVE_BLUE}; //PA1 TODO: fill in the rest
+enum menu_options_t {REMOVE_RED = 1, REMOVE_GREEN = 2, REMOVE_BLUE = 3, NEGATE_RED = 4, NEGATE_GREEN = 5, NEGATE_BLUE = 6, ADD_NOISE = 7, HIGH_CONTRAST = 8, GRAYSCALE = 9}; //PA1 TODO: fill in the rest
 PpmDocument ppmDocumentFromFile(string file_name);
 void ppmDocumentToFile(PpmDocument &doc, string file_name);
 menu_options_t getMenuSelection();
@@ -136,7 +144,7 @@ void ppmDocumentToFile(PpmDocument &doc, string file_name)
 menu_options_t getMenuSelection()
 {
     //PA1 TODO: fill in the rest
-    vector<string> menu_options{ "", "Remove red", "Remove green", "Remove blue"};
+    vector<string> menu_options{ "", "Remove red", "Remove green", "Remove blue", "Negate red", "Negate green", "Negate blue", "Add Noise", "High Contrast", "Grayscale"};
     cout << "***Effect Menu***" << endl;
     for (int i = 1; i < menu_options.size(); i++)
     {
@@ -164,6 +172,34 @@ void applyImageEffect(PpmDocument &doc, menu_options_t option)
     case REMOVE_GREEN:
         effect = new RemoveGreenImageEffect();
         break;
+
+	case REMOVE_BLUE:
+		effect = new RemoveBlueImageEffect();
+		break;
+
+	case NEGATE_RED:
+		effect = new NegateRedImageEffect();
+		break;
+
+	case NEGATE_GREEN:
+		effect = new NegateGreenImageEffect();
+		break;
+
+	case NEGATE_BLUE:
+		effect = new NegateBlueImageEffect();
+		break;
+
+	case ADD_NOISE:
+		effect = new AddNoiseImageEffect();
+		break;
+
+	case HIGH_CONTRAST:
+		effect = new HighContrastImageEffect();
+		break;
+
+	case GRAYSCALE:
+		effect = new GrayscaleImageEffect();
+		break;
     }
 
     if (effect != nullptr)
@@ -171,4 +207,5 @@ void applyImageEffect(PpmDocument &doc, menu_options_t option)
         effect->processImage(doc);
     }
     delete effect;
+
 }

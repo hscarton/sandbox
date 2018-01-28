@@ -9,12 +9,18 @@ class NegateBlueImageEffect : public ImageEffect
 {
     virtual void processImage(PpmDocument &doc)
     {
-		Pixel& p = doc.getPixel(i, j);
-		
-		//subtract the current blue pixel number from 255
-		//to get the negate blue number
-		int b_num = 255 - p.getBlue();
-		p.setBlue(b_num);
+		for (int i = 0; i < doc.getHeight(); i++)
+		{
+			for (int j = 0; j < doc.getWidth(); j++)
+			{
+				Pixel& p = doc.getPixel(i, j);
+
+				//subtract the current blue pixel number from 255
+				//to get the negate blue number
+				int b_num = 255 - p.getBlue();
+				p.setBlue(b_num);
+			}
+		}
     }
 
 };
