@@ -47,16 +47,19 @@
     <ClInclude Include="RemoveBlueImageEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HighContrastImageEffect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AddNoiseImageEffect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RandomNum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RandNum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HighContrastImageEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="GrayscaleImageEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddNoiseImageEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
