@@ -13,12 +13,12 @@ class NegateGreenImageEffect : public ImageEffect
 		{
 			for (int j = 0; j < doc.getWidth(); j++)
 			{
-				Pixel& p = doc.getPixel(i, j);
+                            Pixel& p = doc.getPixel(i, j);
 
-				//subtract the current green pixel number from 255
-				//to get the negate green number
-				int g_num = 255 - p.getGreen();
-				p.setGreen(g_num);
+                            //subtract the current green pixel number from 255
+                            //to get the negate green number
+                            int g_num = 255 - p.getGreen();
+                            p.setGreen(g_num);
 			}
 		}
     }

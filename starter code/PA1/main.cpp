@@ -20,7 +20,9 @@
 using namespace std;
 
 enum colors_t { RED = 0, GREEN, BLUE };
-enum menu_options_t {REMOVE_RED = 1, REMOVE_GREEN = 2, REMOVE_BLUE = 3, NEGATE_RED = 4, NEGATE_GREEN = 5, NEGATE_BLUE = 6, ADD_NOISE = 7, HIGH_CONTRAST = 8, GRAYSCALE = 9}; //PA1 TODO: fill in the rest
+enum menu_options_t {REMOVE_RED = 1, REMOVE_GREEN = 2, REMOVE_BLUE = 3, 
+                     NEGATE_RED = 4, NEGATE_GREEN = 5, NEGATE_BLUE = 6, 
+                     ADD_NOISE = 7, HIGH_CONTRAST = 8, GRAYSCALE = 9}; //PA1 TODO: fill in the rest
 PpmDocument ppmDocumentFromFile(string file_name);
 void ppmDocumentToFile(PpmDocument &doc, string file_name);
 menu_options_t getMenuSelection();
@@ -144,7 +146,10 @@ void ppmDocumentToFile(PpmDocument &doc, string file_name)
 menu_options_t getMenuSelection()
 {
     //PA1 TODO: fill in the rest
-    vector<string> menu_options{ "", "Remove red", "Remove green", "Remove blue", "Negate red", "Negate green", "Negate blue", "Add Noise", "High Contrast", "Grayscale"};
+    vector<string> menu_options{ "", "Remove red", "Remove green", 
+                                 "Remove blue", "Negate red", "Negate green", 
+                                 "Negate blue", "Add Noise", "High Contrast", 
+                                 "Grayscale"};
     cout << "***Effect Menu***" << endl;
     for (int i = 1; i < menu_options.size(); i++)
     {
@@ -165,13 +170,13 @@ void applyImageEffect(PpmDocument &doc, menu_options_t option)
     ImageEffect *effect = nullptr;
     switch (option)
     {
-    case REMOVE_RED:
-        effect = new RemoveRedImageEffect();
-        break;
+        case REMOVE_RED:
+            effect = new RemoveRedImageEffect();
+            break;
 
-    case REMOVE_GREEN:
-        effect = new RemoveGreenImageEffect();
-        break;
+        case REMOVE_GREEN:
+            effect = new RemoveGreenImageEffect();
+            break;
 
 	case REMOVE_BLUE:
 		effect = new RemoveBlueImageEffect();

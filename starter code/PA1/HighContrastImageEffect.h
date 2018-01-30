@@ -4,7 +4,7 @@
 
 #include "ImageEffect.h"
 
-//this image effect will add noise to a picture
+//this image effect will add high contrast to a picture
 class HighContrastImageEffect : public ImageEffect
 {
 	virtual void processImage(PpmDocument &doc)
@@ -14,25 +14,34 @@ class HighContrastImageEffect : public ImageEffect
 			for (int j = 0; j < doc.getWidth(); j++)
 			{
 				Pixel& p = doc.getPixel(i, j);
-
+                                
+                                //If a red, green, or blue pixel is greater than
+                                //255/2, then max out to 255. Else, set the red,
+                                //green, and blue pixel to 0.
+                                
 				if (p.getRed() > (255/2))
 				{
 					p.setRed(255);
 				}
 
-				if (p.getGreen() > (255/2))
+				else if (p.getGreen() > (255/2))
 				{
 					p.setGreen(255);
 				}
 
-				if (p.getBlue() > (255/2))
+				else if (p.getBlue() > (255/2))
 				{
 					p.setBlue(255);
 				}
+                                
+                                else
+                                {
+                                    p.setRed(0);
+                                    p.setGreen(0);
+                                    p.setBlue(0);
+                                }
 
-				p.setRed(0);
-				p.setGreen(0);
-				p.setBlue(0);
+				
 			}
 		}
 	}
