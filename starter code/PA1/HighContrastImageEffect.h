@@ -34,12 +34,12 @@ class HighContrastImageEffect : public ImageEffect
 					p.setBlue(255);
 				}
                                 
-                                else
-                                {
-                                    p.setRed(0);
-                                    p.setGreen(0);
-                                    p.setBlue(0);
-                                }
+                else
+                {
+                    p.setRed(0);
+                    p.setGreen(0);
+                    p.setBlue(0);
+                }
 
 				
 			}

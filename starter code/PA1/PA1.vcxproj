@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="AddNoiseImageEffect.h" />
     <ClInclude Include="GrayscaleImageEffect.h" />
+    <ClInclude Include="FlipHorizontallyImageEffect.h" />
     <ClInclude Include="HighContrastImageEffect.h" />
     <ClInclude Include="RandNum.h" />
     <ClInclude Include="RandomNum.h" />

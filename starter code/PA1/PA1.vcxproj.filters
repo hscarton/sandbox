@@ -62,6 +62,9 @@
     <ClInclude Include="AddNoiseImageEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FlipHorizontallyImageEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="blocks.ppm">

@@ -16,13 +16,15 @@
 #include "AddNoiseImageEffect.h"
 #include "HighContrastImageEffect.h"
 #include "GrayscaleImageEffect.h"
+#include "FlipHorizontallyImageEffect.h"
 
 using namespace std;
 
 enum colors_t { RED = 0, GREEN, BLUE };
 enum menu_options_t {REMOVE_RED = 1, REMOVE_GREEN = 2, REMOVE_BLUE = 3, 
                      NEGATE_RED = 4, NEGATE_GREEN = 5, NEGATE_BLUE = 6, 
-                     ADD_NOISE = 7, HIGH_CONTRAST = 8, GRAYSCALE = 9}; //PA1 TODO: fill in the rest
+                     ADD_NOISE = 7, HIGH_CONTRAST = 8, GRAYSCALE = 9,
+                     FLIP_HORIZONTALLY = 10}; //PA1 TODO: fill in the rest
 PpmDocument ppmDocumentFromFile(string file_name);
 void ppmDocumentToFile(PpmDocument &doc, string file_name);
 menu_options_t getMenuSelection();
@@ -149,7 +151,7 @@ menu_options_t getMenuSelection()
     vector<string> menu_options{ "", "Remove red", "Remove green", 
                                  "Remove blue", "Negate red", "Negate green", 
                                  "Negate blue", "Add Noise", "High Contrast", 
-                                 "Grayscale"};
+                                 "Grayscale", "Flip horizontally"};
     cout << "***Effect Menu***" << endl;
     for (int i = 1; i < menu_options.size(); i++)
     {
@@ -204,6 +206,10 @@ void applyImageEffect(PpmDocument &doc, menu_options_t option)
 
 	case GRAYSCALE:
 		effect = new GrayscaleImageEffect();
+		break;
+
+	case FLIP_HORIZONTALLY:
+		effect = new FlipHorizontallyImageEffect();
 		break;
     }
 
